@@ -31,7 +31,7 @@ systemctl edit\
 systemctl daemon-reload\
 systemctl isolate\
 systemctl list-dependencies\
-
+** systemd-analyze plot > /tmp/file.html
 
 # Managing systemD services
 `systemctl -t help` shows unit types\
@@ -58,6 +58,8 @@ systemctl list-dependencies\
 [Service]
   parameters
   parameters
+[Socket]
+  parameters
 [Install]
   parameters
   parameters
@@ -82,5 +84,14 @@ Targets can be used to bring machine in a specific state (isolate):
 `systemctl list-dependencies name.target`
 `systemctl get-default`
 `systemctl set-default name.target`
+
+
+SystemD dependencies:
+- `Requires` units that must load this unit
+- `Wants` typically seen in targets, units should be loaded (not must be loaded)
+- `Requisite` unit which must already be active (must be loaded)
+- `Conflicts` units that may never be active
+- `Before` load before listed unit
+- `After` load after listed unit
 
 
