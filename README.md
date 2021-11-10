@@ -12,6 +12,8 @@ boot-loaded   =>    kernel    =>  systemD    =>  starts processes in paralel
 - manages mounts, timers, paths, and more (systemctl -t help)
 - can react to specific events
 
+> If enabling a unit, it is added to a specific target
+
 # Who manages systemD? systemctl
 systemctl start\
 systemctl status\
